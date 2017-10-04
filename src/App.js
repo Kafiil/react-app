@@ -16,6 +16,7 @@ class App extends Component {
       endDate: moment(),
       difference: 0
     };
+    console.log(moment.locale());
   }
 
   setStartDate = (date) => {
@@ -49,6 +50,7 @@ class App extends Component {
               selected={this.state.startDate}
               placeholderText="Click to select a date"
               className="form-control"
+              locale="fr"
               onChange={this.setStartDate} />
           </div>
           <div className="form-group">
@@ -57,6 +59,7 @@ class App extends Component {
               selected={this.state.endDate}
               placeholderText="Click to select a date"
               className="form-control"
+              locale="fr"
               onChange={this.setEndDate} />
           </div>
           {/* <button className="btn btn-primary" onClick={this.displayDiff}>Calculate difference in days</button> */}
