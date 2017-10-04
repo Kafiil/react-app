@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
-moment.locale("fr");
 
 class App extends Component {
   constructor(props) {
@@ -16,7 +15,6 @@ class App extends Component {
       endDate: moment(),
       difference: 0
     };
-    console.log(moment.locale());
   }
 
   setStartDate = (date) => {
@@ -43,9 +41,9 @@ class App extends Component {
     return (
       <div className="App">
 
-        <div className="form">
+        <form className="form">
           <div className="form-group">
-            <label htmlFor="">Start date</label>
+            <label className="col-form-label" htmlFor="">Start date</label>
             <Datepicker
               selected={this.state.startDate}
               placeholderText="Click to select a date"
@@ -54,7 +52,7 @@ class App extends Component {
               onChange={this.setStartDate} />
           </div>
           <div className="form-group">
-            <label htmlFor="">End date</label>
+            <label className="col-form-label" htmlFor="">End date</label>
             <Datepicker
               selected={this.state.endDate}
               placeholderText="Click to select a date"
@@ -66,8 +64,9 @@ class App extends Component {
           <p>
             The difference between the two dates is:
             <span className="text-primary"> {this.state.difference}</span>
+            {this.state.difference > 1 ? " days" : " day"}
           </p>
-        </div>
+        </form>
 
       </div>
     );
